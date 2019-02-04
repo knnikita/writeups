@@ -12,8 +12,7 @@ def read(fname):
     with open(fname) as f:
         return f.read()
 
-# charset = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM_{}123456780'"
-# charset = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+
 charset = string.letters + string.digits + " {}=_-!+"
 l = []
 flag = ""
@@ -25,6 +24,6 @@ while len(flag) != 42:
         count = run((flag + a).ljust(42, "*"))
         l.append((count, a))
     l = sorted(l, reverse=True)
-    best = l[0][1] # choose the letter with the biggest number of executed instructions
+    best = l[0][1]
     flag = flag + best
     print flag
